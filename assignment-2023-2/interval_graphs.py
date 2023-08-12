@@ -16,13 +16,13 @@ def lex_bfs(graph):
         # Αν το πρώτο σύνολο της Σ αδειάσει, το αφαιρούμε από τη Σ
         if not S[0]:
             S.popleft()
-        # Στο SS συλλέγουμε όλους τους γείτονες του 𝑢 που ανήκουν στο Σ𝑣
+        # Στο SS συλλέγουμε τα SSn στα οποία συλλέγουμε όλους τους γείτονες του 𝑢 που ανήκουν στα Σ𝑣
         SS = {i: set() for i in range(len(S))}
         # Για κάθε έναν γείτονα 𝑣 του 𝑢
         for v in graph[u]:
             # που δεν έχουμε επισκεφτεί ακόμα
             if v not in lex_order:
-                for (n, Sn), SSn in zip(enumerate(S), SS.values()):
+                for Sn, SSn in zip(S, SS.values()):
                     # Έστω ότι Sn είναι το σύνολο στο οποίο ανήκει ο 𝑣
                     if v in Sn:
                         # Αφαιρούμε τον 𝑣 από το Sn
